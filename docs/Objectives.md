@@ -1,12 +1,18 @@
 # Measure It — Objectives
 
 ## Project Overview
+The target object was changed from a matchbox to a
+D-Tres Vitamin D3 medicine box because the originally
+planned object was unavailable.
 
-Object: Rectangular matchbox
+The measurement objectives and evaluation methodology
+remain unchanged.
 
-Goal: Develop a computer vision system that
-segments a matchbox and estimates its real
-width and height in millimetres.
+The medicine box will be photographed using the same
+mobile phone camera used for calibration.
+object: D-Tres medicine box
+
+
 
 ## MO-1: Measurement Accuracy
 
