@@ -1,129 +1,78 @@
 # Measure It — Objectives
 
 ## Project Overview
-The target object was changed from a matchbox to a
-D-Tres Vitamin D3 medicine box because the originally
-planned object was unavailable.
 
-The measurement objectives and evaluation methodology
-remain unchanged.
+**Target Object:** D-Tres Vitamin D3 medicine box
 
-The medicine box will be photographed using the same
-mobile phone camera used for calibration.
-object: D-Tres medicine box
+**Goal:** Develop a computer vision system that segments the medicine box's rectangular front face and estimates its physical width and height in millimetres.
 
+**Environment:** Python, OpenCV, PyTorch, U-Net, Google Colab CPU.
 
+## MO-1 — Measurement Accuracy
 
-## MO-1: Measurement Accuracy
+**What is measured:** Absolute difference between actual and predicted medicine-box dimensions, in millimetres.
 
-### What is measured?
-The absolute difference between the actual
-matchbox dimensions and the AI-predicted
-dimensions, measured in millimetres.
+**Method:**
 
-### How is it measured?
-Measure at least 10 instances using a physical
-ruler or calliper.
+1. Measure the physical dimensions using a ruler or calliper.
+2. Capture at least 10 measurement instances with a known-size reference object in the same plane.
+3. Run the measurement pipeline on each image.
+4. Calculate width error, height error, and percentage error.
+5. Report mean, median, and worst-case errors.
 
-Compare the ground-truth width and height
-with the system's predicted measurements.
+**Target:** Mean absolute error of 3 mm or less for both width and height.
 
-Calculate:
-- Absolute Error (mm)
-- Percentage Error (%)
-- Mean Absolute Error (MAE)
-- Median Absolute Error
-- Maximum Absolute Error
+**Conditions:** Same calibrated camera, stable zoom and focus, adequate lighting, visible reference, and approximately front-facing measurement plane.
 
-### Target
-Mean Absolute Error <= 3 mm for both
-width and height.
+**Excluded Conditions:** Severely blurred images, occluded reference objects, and images where reliable measurement is impossible. Refusals must be recorded.
 
-### Conditions
-- Same mobile phone camera.
-- Fixed camera zoom and resolution.
-- Calibrated camera.
-- Matchbox and reference on the same flat plane.
-- Reference object fully visible.
-- Adequate lighting.
+**Justification:** A tolerance of 3 mm is an initial practical target for the small rectangular packaging. Its suitability will be evaluated against the object's actual size.
 
-### Not Included
-- Partially hidden objects.
-- Severely blurred images.
-- Images without a detectable reference object.
+**Results:** Pending physical measurements and system evaluation.
 
-### Results
-Pending implementation and testing.
+## MO-2 — Segmentation Accuracy
 
-## MO-2: Segmentation Accuracy
+**What is measured:** Agreement between predicted masks and verified ground-truth masks.
 
-### What is measured?
-The overlap between the predicted matchbox
-segmentation mask and the manually labelled mask.
+**Method:**
 
-### How is it measured?
-Evaluate the trained U-Net model on the
-fixed, unseen test dataset.
+1. Prepare segmentation masks using OpenCV-assisted annotation.
+2. Inspect and correct inaccurate masks.
+3. Train U-Net using the fixed training split.
+4. Select checkpoints using validation data only.
+5. Evaluate once on the untouched test set.
 
-Report:
+**Metrics:**
+
 - Mask IoU
 - mAP@0.5
 - mAP@0.5:0.95
 - Precision
 - Recall
 
-### Target
-Mean mask IoU >= 0.75 on the test split.
+**Target:** Mean mask IoU of at least 0.75 on the fixed test dataset.
 
-### Conditions
-- Original matchbox photographs.
-- Fixed 70/20/10 dataset split.
-- Test images excluded from training and tuning.
-- Same preprocessing during evaluation.
+**Conditions:** Same object, fixed dataset split, consistent preprocessing, and verified segmentation masks.
 
-### Not Included
-- Objects other than the selected matchbox.
-- Images not included in the fixed test set.
+**Excluded Conditions:** Other object classes and images outside the declared evaluation dataset.
 
-### Results
-Pending model training and evaluation.
+**Results:** Pending model training.
 
 ## Camera Calibration
 
-Report:
-- Number of calibration images.
-- Number of successfully detected checkerboards.
-- Camera matrix.
-- Distortion coefficients.
-- Reprojection error.
+**Method:** OpenCV checkerboard calibration.
 
-Results: Pending calibration.
+**Recorded preliminary results:**
 
-## Hardware and Software
+- Calibration photographs: 26
+- Successful corner detections: 25
+- Image resolution: 1600 × 720
+- RMS reprojection error: 0.519 pixels
+- Mean per-image RMS error: 0.384 pixels
+- Worst per-image RMS error: 1.290 pixels
 
-Training environment: Google Colab CPU
+**Status:** Provisional. Calibration was performed using a laptop-displayed checkerboard and WhatsApp-transferred photographs. Physical measurement reliability remains unverified.
 
-Record the following during implementation:
-- CPU model
-- RAM
-- Operating system
-- Python version
-- PyTorch version
-- OpenCV version
-- Mobile phone camera model
-- Original photograph resolution
+## Dataset
 
-## Evidence
-
-All reported results will come from actual
-program output.
-
-Training metrics, measurement tables and
-calibration results will be added after testing.
-
-Targets will not be changed merely to match
-the achieved results.
-
-## Final Status
-
-Not yet evaluated.
+- Object
