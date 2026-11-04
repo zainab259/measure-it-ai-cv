@@ -1,40 +1,97 @@
-# Definition of Done
+# Measure It — Definition of Done
 
-## Core Requirements
+This checklist tracks assessment requirements. A task is marked complete only when supporting evidence is available.
 
-- [ ] Camera calibrated using 20+ checkerboard images.
-- [ ] Camera matrix and distortion coefficients saved.
-- [ ] Reprojection error calculated and reported.
-- [ ] At least 70 original matchbox images collected.
-- [ ] Segmentation masks created for all dataset images.
-- [ ] Fixed 70/20/10 dataset split committed before training.
-- [ ] U-Net segmentation model trained on original images.
-- [ ] Test IoU, mAP@0.5, mAP@0.5:0.95, precision and recall reported.
-- [ ] Image-to-millimetres inference command implemented.
-- [ ] Width, height and confidence displayed on output.
-- [ ] Missing object and missing reference handled.
+## 1. Camera Calibration
 
-## Measurement and Evaluation
+- [x] Capture at least 20 checkerboard photographs.
+  - Evidence: 26 photographs collected.
+- [x] Detect checkerboard corners using OpenCV.
+  - Evidence: 25 successful detections.
+- [x] Calculate camera matrix and distortion coefficients.
+  - Evidence: Calibration notebook output.
+- [x] Report reprojection error.
+  - Evidence: RMS error = 0.519 pixels.
+- [x] Save calibration parameters.
+  - Evidence: `camera_calibration.npz` saved in Google Drive.
+- [ ] Verify reliable undistortion and calibration compatibility for measurement images.
+- [ ] Include calibration code, images, and parameters in the final repository.
 
-- [ ] At least 10 physical measurements compared with predictions.
-- [ ] Mean, median and worst-case errors calculated.
-- [ ] Raw and undistorted measurement errors compared.
-- [ ] Two measurable objectives evaluated.
+## 2. Dataset Collection
 
-## Submission
+- [x] Select a physical object.
+  - Evidence: D-Tres Vitamin D3 medicine box.
+- [x] Collect at least 70 photographs.
+  - Evidence: 70 candidate images collected by the candidate.
+- [x] Check image dimensions and exact duplicates.
+  - Evidence: 70 images, zero exact duplicate groups.
+- [x] Generate fixed train/validation/test filename lists.
+  - Evidence: 49 training, 14 validation, 7 testing.
+- [x] Commit split lists before model training.
+  - Evidence: `dataset/splits/` on `dev-test01`.
+- [ ] Verify and save undistorted dataset images.
+- [ ] Generate and verify 70 segmentation masks.
+- [ ] Commit the required images, annotations, and dataset metadata.
 
-- [ ] Plan completed.
-- [ ] Objectives document completed.
-- [ ] Definition of Done updated with evidence.
-- [ ] README completed.
-- [ ] Model weights and SHA-256 hash provided.
-- [ ] Pull request created from dev-test01 into main.
-- [ ] Loom recording completed within 5 minutes.
-- [ ] Repository and Loom links submitted.
+## 3. Segmentation Model
 
-## Evidence
+- [ ] Implement U-Net with MobileNetV2 encoder.
+- [ ] Train or fine-tune using original dataset images.
+- [ ] Use training data only for parameter updates.
+- [ ] Select the best checkpoint using validation data.
+- [ ] Evaluate on the untouched test dataset.
+- [ ] Report mask IoU.
+- [ ] Report mAP@0.5.
+- [ ] Report mAP@0.5:0.95.
+- [ ] Report precision and recall.
+- [ ] Save model weights and training configuration.
 
-Each completed requirement will include a result,
-file path, screenshot, or commit reference.
+## 4. Image-to-Millimetres Pipeline
 
-Any unfinished requirement will be documented honestly.
+- [ ] Accept a new image through one command.
+- [ ] Apply camera undistortion.
+- [ ] Predict the medicine-box segmentation mask.
+- [ ] Detect a reference object of known dimensions.
+- [ ] Convert pixel dimensions into millimetres.
+- [ ] Report width, height, and confidence.
+- [ ] Generate a segmentation overlay.
+- [ ] Handle object-not-found cases.
+- [ ] Handle reference-not-found cases.
+
+## 5. Physical Accuracy Evaluation
+
+- [ ] Measure at least 10 instances physically.
+- [ ] Compare physical measurements with predictions.
+- [ ] Report a per-instance accuracy table.
+- [ ] Calculate mean absolute error in millimetres.
+- [ ] Calculate percentage error.
+- [ ] Report median and maximum errors.
+- [ ] Compare raw and undistorted measurements.
+
+## 6. Additional Evaluation
+
+- [ ] Evaluate MO-1: Measurement accuracy.
+- [ ] Evaluate MO-2: Segmentation accuracy.
+- [ ] Measure one performance or accuracy target.
+- [ ] Investigate one failure condition.
+- [ ] Implement unreliable-measurement rejection.
+- [ ] Report refusal threshold and refused-image count.
+
+## 7. GitHub and Documentation
+
+- [x] Create a public GitHub repository.
+  - Evidence: `zainab259/measure-it-ai-cv`
+- [x] Create the required development branch.
+  - Evidence: `dev-test01`
+- [x] Create the Project Plan.
+  - Evidence: `docs/Plan.md`
+- [x] Create the Objectives document.
+  - Evidence: `docs/Objectives.md`
+- [x] Create the Definition of Done.
+  - Evidence: This document.
+- [x] Record the target-object change.
+  - Evidence: Plan revision.
+- [ ] Commit calibration and dataset implementation.
+- [ ] Commit training and evaluation implementation.
+- [ ] Document software versions and hardware.
+- [ ] Create complete
