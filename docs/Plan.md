@@ -1,8 +1,19 @@
+## Plan Revision — 4 November 2026
+
+Originally, a matchbox was selected as the target object.
+
+The object was changed to a rectangular D-Tres Vitamin D3
+medicine box because a matchbox was not available.
+
+The medicine box has a flat rectangular surface and
+clear boundaries suitable for segmentation and measurement.
+
+This change does not affect the selected segmentation
+architecture or the overall measurement workflow.
 # Measure It — Project Plan
 
 ## Objective
-Build a computer vision system that measures the
-width and height of a matchbox in millimetres.
+Build a computer vision system that measures the width and height of a rectangular D-Tres Vitamin D3 medicine box in millimetres.
 
 ## Approach
 1. Calibrate a mobile phone camera using OpenCV
