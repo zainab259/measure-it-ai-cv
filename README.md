@@ -9,6 +9,14 @@
 ### Model
 U-Net with MobileNetV2 encoder.
 Checkpoint: models/best_unet_mobilenetv2.pth
+### Trained Model Checkpoint
+
+- Architecture: U-Net
+- Encoder: MobileNetV2
+- Pretrained encoder weights: ImageNet
+- Checkpoint: `models/best_unet_mobilenetv2.pth`
+**SHA-256:**
+`f23b88196bca133541db2f630b5770b34c381c626a9766bc8d59ccc9df946b0e`
 
 ### Installation
 Run: pip install -r requirements.txt
