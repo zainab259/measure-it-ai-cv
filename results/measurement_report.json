@@ -1,0 +1,15 @@
+{
+    "object": "D-Tres medicine box",
+    "completed_measurement_trials": 1,
+    "required_measurement_trials": 10,
+    "remaining_trials": 9,
+    "mean_absolute_error_mm": 6.71,
+    "mean_percentage_error": 9.16,
+    "limitations": [
+        "Reference tick coordinates estimated manually",
+        "Flexible tape not perfectly straight",
+        "Tape and box face at different heights",
+        "Automatic reference detection incomplete",
+        "Nine additional measurements pending"
+    ]
+}
