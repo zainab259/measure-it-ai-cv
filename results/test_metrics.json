@@ -1,0 +1,74 @@
+{
+    "summary": {
+        "test_images": 7,
+        "test_mean_iou": 0.8749159430073025,
+        "test_mean_pixel_precision": 0.9174975067565354,
+        "test_mean_pixel_recall": 0.9528477768530026,
+        "single_class_instance_ap50": 1.0,
+        "single_class_instance_map50_95": 0.8119047619047619,
+        "metric_note": "AP computed using one predicted medicine-box mask per image, with mean foreground probability as an uncalibrated confidence proxy. Not COCO detector mAP."
+    },
+    "per_image_results": [
+        {
+            "image_index": 1,
+            "iou": 0.8829239879623337,
+            "precision": 0.8874036491365012,
+            "recall": 0.9943150759811961,
+            "confidence_proxy": 0.9312906265258789
+        },
+        {
+            "image_index": 2,
+            "iou": 0.800128990648178,
+            "precision": 0.858962819358859,
+            "recall": 0.9211464211464212,
+            "confidence_proxy": 0.9314250946044922
+        },
+        {
+            "image_index": 3,
+            "iou": 0.9099184675057389,
+            "precision": 0.923293172690763,
+            "recall": 0.984329508477479,
+            "confidence_proxy": 0.936441957950592
+        },
+        {
+            "image_index": 4,
+            "iou": 0.9021213248976554,
+            "precision": 0.9132236594248399,
+            "recall": 0.9867028493894165,
+            "confidence_proxy": 0.9429859519004822
+        },
+        {
+            "image_index": 5,
+            "iou": 0.7877650675950626,
+            "precision": 0.9875304653403616,
+            "recall": 0.7956797734849522,
+            "confidence_proxy": 0.9293699860572815
+        },
+        {
+            "image_index": 6,
+            "iou": 0.9178016726403824,
+            "precision": 0.9221535322009483,
+            "recall": 0.9948844136501975,
+            "confidence_proxy": 0.9445022344589233
+        },
+        {
+            "image_index": 7,
+            "iou": 0.9237520898017674,
+            "precision": 0.9299152491434753,
+            "recall": 0.9928763958413555,
+            "confidence_proxy": 0.9457773566246033
+        }
+    ],
+    "ap_by_iou_threshold": {
+        "0.50": 1.0,
+        "0.55": 1.0,
+        "0.60": 1.0,
+        "0.65": 1.0,
+        "0.70": 1.0,
+        "0.75": 1.0,
+        "0.80": 0.8571428571428571,
+        "0.85": 0.6904761904761905,
+        "0.90": 0.5714285714285714,
+        "0.95": 0.0
+    }
+}

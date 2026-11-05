@@ -1,0 +1,2 @@
+trial,object,actual_length_mm,predicted_length_mm,actual_width_mm,predicted_width_mm,length_error_mm,width_error_mm,length_error_pct,width_error_pct,reference_method,verification_status
+1,D-Tres medicine box,86.36,93.14,63.5,70.14,6.78,6.64,7.85,10.46,manual tape calibration,preliminary
